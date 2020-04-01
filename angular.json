@@ -1,0 +1,187 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "frontend": {
+            "projectType": "application",
+            "schematics": {},
+            "root": "",
+            "sourceRoot": "src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/frontend",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets"
+                        ],
+                        "styles": [
+                            "src/styles.css",
+                            "src/assets/files/bower_components/bootstrap/css/bootstrap.min.css",
+                            "src/assets/files/assets/pages/waves/css/waves.min.css",
+                            "src/assets/files/assets/icon/themify-icons/themify-icons.css",
+                            "src/assets/files/assets/css/style.css",
+                            "src/assets/files/assets/css/jquery.mCustomScrollbar.css",
+                            "src/assets/files/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css",
+                            "src/assets/files/assets/pages/data-table/css/buttons.dataTables.min.css",
+                            "src/assets/files/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css",
+                            "src/assets/files/assets/icon/icofont/icofont.css",
+
+                            "src/assets/files/bower_components/pnotify/css/pnotify.css",
+                            "src/assets/files/bower_components/pnotify/css/pnotify.brighttheme.css",
+                            "src/assets/files/bower_components/pnotify/css/pnotify.buttons.css",
+                            "src/assets/files/bower_components/pnotify/css/pnotify.history.css",
+                            "src/assets/files/bower_components/pnotify/css/pnotify.mobile.css",
+                            "src/assets/files/assets/pages/pnotify/notify.css",
+                            "node_modules/select2/dist/css/select2.min.css"
+                        ],
+                        "scripts": [
+                            "src/assets/files/bower_components/jquery/js/jquery.min.js",
+                            "src/assets/files/bower_components/popper.js/js/popper.min.js",
+                            "src/assets/files/bower_components/bootstrap/js/bootstrap.min.js",
+                            "src/assets/files/assets/pages/waves/js/waves.min.js",
+                            "src/assets/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js",
+                            "src/assets/files/bower_components/modernizr/js/modernizr.js",
+                            "src/assets/files/bower_components/modernizr/js/css-scrollbars.js",
+
+                            "src/assets/files/bower_components/datatables.net/js/jquery.dataTables.min.js",
+                            "src/assets/files/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js",
+                            "src/assets/files/assets/pages/data-table/js/jszip.min.js",
+                            "src/assets/files/assets/pages/data-table/js/pdfmake.min.js",
+                            "src/assets/files/assets/pages/data-table/js/vfs_fonts.js",
+                            "src/assets/files/bower_components/datatables.net-buttons/js/buttons.print.min.js",
+                            "src/assets/files/bower_components/datatables.net-buttons/js/buttons.html5.min.js",
+                            "src/assets/files/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js",
+                            "src/assets/files/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js",
+                            "src/assets/files/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js",
+                            "src/assets/files/assets/pages/data-table/js/data-table-custom.js",
+
+
+                            "src/assets/files/assets/js/pcoded.min.js",
+                            "src/assets/files/assets/js/vertical/vertical-layout.min.js",
+                            "src/assets/files/assets/js/jquery.mCustomScrollbar.concat.min.js",
+                            "src/assets/files/assets/js/script.min.js",
+                            "node_modules/select2/dist/js/select2.min.js"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.prod.ts"
+                            }],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [{
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "frontend:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "frontend:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "frontend:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/test.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.spec.json",
+                        "karmaConfig": "karma.conf.js",
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets"
+                        ],
+                        "styles": [
+                            "src/styles.css",
+                            "src/assets/files/bower_components/bootstrap/css/bootstrap.min.css",
+                            "src/assets/files/assets/pages/waves/css/waves.min.css",
+                            "src/assets/files/assets/icon/themify-icons/themify-icons.css",
+                            "src/assets/files/assets/css/style.css",
+                            "src/assets/files/assets/css/jquery.mCustomScrollbar.css"
+                        ],
+                        "scripts": [
+                            "src/assets/files/bower_components/jquery/js/jquery.min.js",
+                            "src/assets/files/bower_components/popper.js/js/popper.min.js",
+                            "src/assets/files/bower_components/bootstrap/js/bootstrap.min.js",
+                            "src/assets/files/assets/pages/waves/js/waves.min.js",
+                            "src/assets/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js",
+                            "src/assets/files/bower_components/modernizr/js/modernizr.js",
+                            "src/assets/files/bower_components/modernizr/js/css-scrollbars.js",
+                            "src/assets/files/assets/js/pcoded.min.js",
+                            "src/assets/files/assets/js/vertical/vertical-layout.min.js",
+                            "src/assets/files/assets/js/jquery.mCustomScrollbar.concat.min.js",
+                            "src/assets/files/assets/js/script.min.js"
+                        ]
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "tsconfig.app.json",
+                            "tsconfig.spec.json",
+                            "e2e/tsconfig.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                },
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "e2e/protractor.conf.js",
+                        "devServerTarget": "frontend:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "frontend:serve:production"
+                        }
+                    }
+                }
+            }
+        }
+
+    },
+    "defaultProject": "frontend",
+    "cli": {
+        "analytics": false
+    }
+}
